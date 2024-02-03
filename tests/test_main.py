@@ -34,7 +34,7 @@ def test_transaction_data():
 
 
 def test_checking_cards_from():
-    assert checking_cards_from(transaction_data(5)[4]) == ('Счет', '38611 4**** ***** *9794')
+    assert checking_cards_from(transaction_data(5)[4]) == ('Счет', '3861 1439 52** **** 9794')
     assert checking_cards_from(transaction_data(5)[1]) == 'отсутствует'
     assert checking_cards_from(transaction_data(5)[2]) == ('Maestro', '7810 84** **** 5568')
     assert checking_cards_from(transaction_data(5)[3]) == ('Visa', 'Classic', '2842 87** **** 9012')

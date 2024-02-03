@@ -7,6 +7,7 @@ with open(os.path.join('operations.json'), 'r', encoding="utf-8") as jsonfile:
     templates = json.load(jsonfile)  # read the file json
 
 
+
 def data_cek(a=5):
     '''
     getting date sorted
