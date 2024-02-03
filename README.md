@@ -1,1 +1,1 @@
-# Kursovaya_3
+# Kursovaya_3_Purenkov_Aleksandr
