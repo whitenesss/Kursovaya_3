@@ -1,9 +1,6 @@
 from src.function import print_display_to_user
 
-
-
 user_input = int(input('введите нужное количество транзакций: '))
-
 
 count_transaction = 0
 while count_transaction < user_input:
