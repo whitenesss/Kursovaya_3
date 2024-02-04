@@ -8,7 +8,7 @@ with open(os.path.join('operations.json'), 'r', encoding="utf-8") as jsonfile:
 
 
 
-def data_cek(a=5):
+def data_cek(namber=5):
     '''
     getting date sorted
     '''
@@ -19,7 +19,7 @@ def data_cek(a=5):
         if day_namber['state'] == 'EXECUTED':
             data.append(day_namber['date'])
             data1 = sorted(data, reverse=True)
-    return data1[:a]
+    return data1[:namber]
 
 
 def transaction_data(kol_vo=5):
@@ -58,7 +58,7 @@ def checking_cards_from(kol_v):
         elif 20 == len(card_number):
             private_number1 = card_number[:10] + (len(card_number[10:-4]) * '*') + card_number[-4:]
             chunks, chunk_size = len(private_number1), len(private_number1) // 5
-            private_number = " ".join([private_number1[i:i + chunk_size] for i in range(0, chunks, chunk_size)])
+            private_number = " ".join([private_number1[namber:namber + chunk_size] for namber in range(0, chunks, chunk_size)])
             return *card_name, private_number
     return "отсутствует"
 
