@@ -3,9 +3,14 @@ import json
 import os
 import sys
 
-with open(os.path.join('operations.json'), 'r', encoding="utf-8") as jsonfile:
-    templates = json.load(jsonfile)  # read the file json
 
+def json_file_print():
+    '''
+    reading json file
+    '''
+    with open('operations.json', 'r', encoding="utf-8") as file:
+        templates = json.load(file)
+        return templates
 
 
 def data_cek(namber=5):
@@ -13,7 +18,7 @@ def data_cek(namber=5):
     getting date sorted
     '''
     data = []
-    for day_namber in templates:
+    for day_namber in json_file_print():
         if day_namber == {}:
             continue
         if day_namber['state'] == 'EXECUTED':
@@ -28,7 +33,7 @@ def transaction_data(kol_vo=5):
     '''
     tran = []
     count_itereit = 0
-    for transaction_data in templates:
+    for transaction_data in json_file_print():
         if transaction_data == {}:
             continue
         if transaction_data['date'] in data_cek(kol_vo):
@@ -56,10 +61,13 @@ def checking_cards_from(kol_v):
             private_number = " ".join([private_number1[i:i + chunk_size] for i in range(0, chunks, chunk_size)])
             return *card_name, private_number
         elif 20 == len(card_number):
-            private_number1 = card_number[:10] + (len(card_number[10:-4]) * '*') + card_number[-4:]
-            chunks, chunk_size = len(private_number1), len(private_number1) // 5
-            private_number = " ".join([private_number1[namber:namber + chunk_size] for namber in range(0, chunks, chunk_size)])
-            return *card_name, private_number
+            private_number1 = '**' + card_number[-4:]
+            return *card_name, private_number1
+            # private_number1 = card_number[:10] + (len(card_number[10:-4]) * '*') + card_number[-4:]
+            # chunks, chunk_size = len(private_number1), len(private_number1) // 5
+            # private_number = " ".join(
+            #     [private_number1[namber:namber + chunk_size] for namber in range(0, chunks, chunk_size)])
+            # return *card_name, private_number
     return "отсутствует"
 
 
